@@ -211,7 +211,7 @@ class Cal_quantity_GK():
 
             self.Potential[i,:] = self.Potential[i,:]/self.n_atom_group[i]*eV_to_J # J
             self.Virial[i,:,:] = -self.Virial[i,:,:]/self.n_atom_group[i]*eV_to_J # J -1/2*rij*Fij in GPUMD
-            self.Enthalpy[i,:] = self.Potential[i,:] + self.Kinetic[i,:] + 1/3*(self.Kinetic[i,:]*2 + 1/3*(self.Virial[i,0,:]+self.Virial[i,1,:]+self.Virial[i,2,:])) # J
+            self.Enthalpy[i,:] = self.Potential[i,:] + self.Kinetic[i,:] + 1/3*(self.Kinetic[i,:]*2 + (self.Virial[i,0,:]+self.Virial[i,1,:]+self.Virial[i,2,:])) # J
             
         return
     
