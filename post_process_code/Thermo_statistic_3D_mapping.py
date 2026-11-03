@@ -109,7 +109,7 @@ class statistic_3D_equilibrium():
                 bath_power[i+1, :] = np.array(data[self.natoms * 10 : self.natoms * 10 + 2], dtype=float)
 
         Kinetic = 3/2*kb*self.Temperature # J
-        self.Enthalpy_without_potential = Kinetic + 1/3*(Kinetic*2 + 1/3*(Virial[:,:,0]+Virial[:,:,1]+Virial[:,:,2])*eV_to_J) # J
+        self.Enthalpy_without_potential = Kinetic + 1/3*(Kinetic*2 + (Virial[:,:,0]+Virial[:,:,1]+Virial[:,:,2])*eV_to_J) # J
         print("Compute.out file read successfully.")
         
         bath_power = bath_power * eV_to_J
